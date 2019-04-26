@@ -18,7 +18,7 @@ public class Main extends Application {
 			Parent root = (Parent)FXMLLoader.load(getClass().getResource("homeUI.fxml"));
 			Scene scene = new Scene(root,600,400);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			stage.setTitle("Cool Game Title");
+			stage.setTitle("Wow cool!!");
 			stage.setScene(scene);
 			stage.show();
 		} catch(Exception e) {

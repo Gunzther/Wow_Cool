@@ -11,7 +11,8 @@ import javafx.fxml.*;
 
 public class HomeController {
 	public static Stage stage;
-	public static boolean startStage = false; 
+	public static boolean timesTableChoosingStage = false; 
+	public static boolean gameStage = false;
 	
 	@FXML
 	Button start;
@@ -43,13 +44,16 @@ public class HomeController {
 	/** Go to mode selection */
 	public void handleStart() {
 		if(Main.stage.isShowing()) Main.stage.close();
-//		else if(startStage && ModeController.stage.isShowing()) ModeController.stage.close();
+		else if(timesTableChoosingStage && TimesTableChoosingController.stage.isShowing()) {
+			TimesTableChoosingController.stage.close();
+			timesTableChoosingStage = false;
+		}
 		stage = new Stage();
 		try {
 			Parent root = (Parent)FXMLLoader.load(getClass().getResource("TimesTableChoosingUI.fxml"));
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			stage.setTitle("Cool Game Title");
+			stage.setTitle("Wow cool!!");
 			stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
 				@Override
 				public void handle(WindowEvent event) {
