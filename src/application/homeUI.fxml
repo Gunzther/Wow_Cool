@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.text.Font?>
+
+<FlowPane alignment="CENTER" columnHalignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.HomeController">
+   <children>
+      <Button fx:id="start" alignment="CENTER" mnemonicParsing="false" onAction="#initialize" onMouseClicked="#handleStart" prefHeight="133.0" prefWidth="221.0" text="START">
+         <font>
+            <Font size="47.0" />
+         </font></Button>
+   </children>
+</FlowPane>
