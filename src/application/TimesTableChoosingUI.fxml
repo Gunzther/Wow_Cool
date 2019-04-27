@@ -23,11 +23,16 @@
             <Button fx:id="times12" alignment="CENTER" mnemonicParsing="false" onAction="#initialize" onMouseClicked="#handlePlay" prefHeight="27.0" prefWidth="101.0" text="12" />
          </children>
       </FlowPane>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="291.0" layoutY="144.0" prefHeight="17.0" prefWidth="264.0" text="-">
+      <Label fx:id="highscore" alignment="CENTER" contentDisplay="CENTER" layoutX="272.0" layoutY="140.0" prefHeight="17.0" prefWidth="264.0" text="??">
          <font>
-            <Font size="69.0" />
+            <Font name="Comic Sans MS" size="69.0" />
          </font>
       </Label>
       <Button fx:id="back" layoutX="478.0" layoutY="359.0" mnemonicParsing="false" onMouseClicked="#handleBack" text="Back to Home" />
+      <Label layoutX="257.0" layoutY="105.0" text="High Score">
+         <font>
+            <Font name="Comic Sans MS" size="24.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

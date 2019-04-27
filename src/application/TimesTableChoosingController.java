@@ -6,11 +6,17 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+
 import javafx.event.EventHandler;
 import javafx.fxml.*;
 
 public class TimesTableChoosingController {
 	public static Stage stage;
+	public List<String> scoreList;
 	
 	@FXML
 	Button times2;
@@ -41,13 +47,21 @@ public class TimesTableChoosingController {
 	
 	@FXML
 	public void initialize() {
+		scoreList = new ArrayList<>();
+		ScoreManager scoreManager = new ScoreManager();
 		EventHandler<MouseEvent> event1 = new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
 				if(event.getTarget().getClass() == times2.getClass()) {
+					try {
+						scoreList = scoreManager.readScore();
+					} catch (FileNotFoundException e) {
+						e.printStackTrace();
+					}
 					Button target = (Button) event.getTarget();
 					String text = target.getText();
 					target.setText("          " + text);
+					highscore.setText(scoreList.get(Integer.parseInt(text) - 2));
 				}
 			}
 		};
@@ -59,6 +73,7 @@ public class TimesTableChoosingController {
 					Button target = (Button) event.getTarget();
 					String text = target.getText();
 					target.setText(text.trim());
+					highscore.setText("??");
 				}
 			}
 		};
