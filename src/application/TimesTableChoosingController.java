@@ -45,6 +45,8 @@ public class TimesTableChoosingController {
 	@FXML
 	Label highscore;
 	
+	private int check = 0;
+	
 	@FXML
 	public void initialize() {
 		scoreList = new ArrayList<>();
@@ -86,7 +88,7 @@ public class TimesTableChoosingController {
 					Button target = (Button) event.getTarget();
 					String text = target.getText().trim();
 					GameController.times = Integer.parseInt(text);
-					handlePlay();
+					if(check == 0) handlePlay();
 				}
 			}
 		};
@@ -159,6 +161,7 @@ public class TimesTableChoosingController {
 	}
 	
 	public void handlePlay() {
+		check++;
 		if(HomeController.stage.isShowing()) {
 			HomeController.stage.close();
 			System.out.println("close");
