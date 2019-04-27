@@ -1,7 +1,5 @@
 package application;
 
-import java.util.ArrayList;
-
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,11 +27,12 @@ public class BoardController {
 	Button playAgain;
 	
 	public void initialize() {
+		stage = new Stage();
 		Player player = GameController.player;
-		scoreLb.setText(Integer.toString(player.getScore()));
+		scoreLb.setText(Integer.toString(player.getScore()) + "/" + Integer.toString(player.getTotal()));
 		correct.setText(Integer.toString(player.getCorrectAns()));
 		wrong.setText(Integer.toString(player.getWrongAns()));
-		frequency.setText(Integer.toString(player.getFrequent()));
+		frequency.setText(player.getFrequent());
 	}
 	
 	public void handleBack() {
@@ -59,7 +58,7 @@ public class BoardController {
 	}
 	
 	public void handlePlayAgain() {
-		if(BoardController.stage.isShowing()) BoardController.stage.close();
+		if(GameController.stage.isShowing()) GameController.stage.close();
 		HomeController.boardStage = true;
 		stage = new Stage();
 		try {

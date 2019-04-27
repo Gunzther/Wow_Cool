@@ -30,9 +30,13 @@ public class Player {
 	public int getWrongAns() {
 		return totalNumOfAns - score;
 	}
+	
+	public int getTotal() {
+		return totalNumOfAns;
+	}
 
-	public int getFrequent() {
-		return 60/totalNumOfAns;
+	public String getFrequent() {
+		return String.format("%.2f", 60.0/totalNumOfAns);
 	}
 
 }

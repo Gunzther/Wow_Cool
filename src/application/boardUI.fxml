@@ -7,22 +7,22 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.BoardController">
    <children>
-      <Label layoutX="86.0" layoutY="25.0" text="Score:">
+      <Label layoutX="61.0" layoutY="25.0" text="Score:">
          <font>
             <Font name="Comic Sans MS" size="48.0" />
          </font>
       </Label>
-      <Label layoutX="90.0" layoutY="115.0" text="Frequency:">
+      <Label layoutX="66.0" layoutY="115.0" text="Frequency:">
          <font>
             <Font name="Comic Sans MS" size="36.0" />
          </font>
       </Label>
-      <Label layoutX="90.0" layoutY="199.0" text="Correct:">
+      <Label layoutX="128.0" layoutY="199.0" text="Correct:">
          <font>
             <Font name="Comic Sans MS" size="36.0" />
          </font>
       </Label>
-      <Label layoutX="335.0" layoutY="199.0" text="Wrong:">
+      <Label layoutX="336.0" layoutY="199.0" text="Wrong:">
          <font>
             <Font name="Comic Sans MS" size="36.0" />
          </font>
@@ -35,21 +35,31 @@
          <font>
             <Font name="Comic Sans MS Bold" size="15.0" />
          </font></Button>
-      <Label fx:id="scoreLb" layoutX="275.0" layoutY="27.0" text="??">
+      <Label fx:id="scoreLb" alignment="CENTER" contentDisplay="CENTER" layoutX="207.0" layoutY="27.0" prefHeight="67.0" prefWidth="183.0" text="??/??">
          <font>
             <Font name="Comic Sans MS" size="48.0" />
          </font></Label>
-      <Label fx:id="frequency" layoutX="312.0" layoutY="109.0" text="??">
+      <Label fx:id="frequency" alignment="CENTER" contentDisplay="CENTER" layoutX="247.0" layoutY="109.0" prefHeight="67.0" prefWidth="183.0" text="??.??">
          <font>
             <Font name="Comic Sans MS" size="48.0" />
          </font></Label>
-      <Label fx:id="correct" layoutX="202.0" layoutY="242.0" text="??">
+      <Label fx:id="correct" alignment="CENTER" layoutX="133.0" layoutY="243.0" prefHeight="67.0" prefWidth="129.0" text="??" textFill="#30ae49">
          <font>
             <Font name="Comic Sans MS" size="48.0" />
          </font></Label>
-      <Label fx:id="wrong" layoutX="428.0" layoutY="243.0" text="??">
+      <Label fx:id="wrong" alignment="CENTER" contentDisplay="CENTER" layoutX="344.0" layoutY="244.0" prefHeight="67.0" prefWidth="111.0" text="??" textFill="#cd1e1e">
          <font>
             <Font name="Comic Sans MS" size="48.0" />
          </font></Label>
+      <Label layoutX="431.0" layoutY="135.0" text="sec/question">
+         <font>
+            <Font name="Comic Sans MS" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="391.0" layoutY="52.0" text="points">
+         <font>
+            <Font name="Comic Sans MS" size="21.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -138,6 +138,7 @@ public class TimesTableChoosingController {
 	
 	public void handleBack() {
 		if(HomeController.stage.isShowing()) HomeController.stage.close();
+		else if (HomeController.boardStage && BoardController.stage.isShowing()) BoardController.stage.close();
 		HomeController.timesTableChoosingStage = true;
 		stage = new Stage();
 		try {
@@ -162,7 +163,6 @@ public class TimesTableChoosingController {
 		check++;
 		if(HomeController.stage.isShowing()) {
 			HomeController.stage.close();
-			System.out.println("close");
 		}
 		HomeController.gameStage = true;
 		stage = new Stage();
