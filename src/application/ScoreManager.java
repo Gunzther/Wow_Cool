@@ -25,17 +25,20 @@ public class ScoreManager {
 		} catch (FileNotFoundException e) {
 			String filename = path + "/score.txt";
 			OutputStream out = null;
+			
 			try {
 				out = new FileOutputStream(filename, true);
 			} catch (FileNotFoundException ex) {
 				System.out.println("Couldn't open output file " + filename);
 			}
+			
 			PrintStream printOut = new PrintStream(out);
 			for(int i = 0; i < 11; i++) {
 				printOut.printf("0\n");
 			}
 			in = new FileInputStream(filename);
 		}
+		
 		Scanner readText = new Scanner(in);
 		while (readText.hasNextLine()) {
 			String score = readText.nextLine();
@@ -44,8 +47,7 @@ public class ScoreManager {
 		if (in != null)
 			try {
 				in.close();
-			} catch (IOException ioe) {
-		}
+			} catch (IOException ioe) {}
 		
 		return listScore;
 	}
@@ -55,10 +57,9 @@ public class ScoreManager {
 	public void recordScore(int times, int newScore) throws FileNotFoundException {
 		List<String> oldScoreList = readScore();
 		String path = System.getProperty("user.dir");
-		String outputfile = path + "score.txt";
-		OutputStream out = null;
+		String outputfile = path + "/score.txt";
 		try {
-			out = new FileOutputStream(outputfile, true);
+			OutputStream out = new FileOutputStream(outputfile, true);
 		} catch (FileNotFoundException ex) {
 			System.out.println("Couldn't open output file " + outputfile);
 			return;

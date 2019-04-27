@@ -1,5 +1,6 @@
 package application;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -25,6 +26,7 @@ public class GameController {
 	public static int times;
 	public static Player player;
 	
+	private Timer myTimer;
 	private int timeInSec;
 	private String ans;
 	private Random rand;
@@ -60,7 +62,6 @@ public class GameController {
 		player = new Player();
 		generateQuestion();
 		startTimer();
-//		back.setText();
 		
 //		EventHandler<MouseEvent> event1 = new EventHandler<MouseEvent>() {
 //			@Override
@@ -100,7 +101,7 @@ public class GameController {
 	
 	public void startTimer() {
 		timeInSec = 60;
-		Timer myTimer = new Timer();
+		myTimer = new Timer();
 		myTimer.schedule(new TimerTask() {
 			  @Override
 			  public void run() {
@@ -110,14 +111,18 @@ public class GameController {
 				  timeInSec--;
 				  if(timeInSec == 0) {
 					  myTimer.cancel();
-					  showScore();
+					  try {
+						showScore();
+					} catch (FileNotFoundException e) {
+						e.printStackTrace();
+					}
 				  }
-				  System.out.println(timeInSec);
 			  }
 			}, 1000, 1000);
 	}
 	
 	public void handleBack() {
+		myTimer.cancel();
 		if(TimesTableChoosingController.stage.isShowing()) TimesTableChoosingController.stage.close();
 		HomeController.gameStage = true;
 		stage = new Stage();
@@ -151,14 +156,17 @@ public class GameController {
 		list = new ArrayList<Integer>(Arrays.asList(1,2,3,4,5,6,7,8,9,10,11,12));
 		rand = new Random();
 		int question = list.get(rand.nextInt(list.size()));
+		System.out.println(question);
 		list.remove(list.indexOf(question));
 		
 		front.setText(Integer.toString(times));
 		back.setText(Integer.toString(question));
 		
 		ans = Integer.toString(times * question);
+		System.out.println("ans: " + ans);
 		
-		int ansButton = (rand.nextInt(4) + 1);
+		int ansButton = (rand.nextInt(4));
+		System.out.println("button: " + ansButton);
 		
 		for(int i = 0; i < 4; i++) {
 			if(i == ansButton) {
@@ -172,8 +180,31 @@ public class GameController {
 		}
 	}
 	
-	public void showScore() {
-		System.out.println("Show score");
+	public void showScore() throws FileNotFoundException {
+		if(TimesTableChoosingController.stage.isShowing()) TimesTableChoosingController.stage.close();
+		else if(HomeController.boardStage && BoardController.stage.isShowing()) {
+			BoardController.stage.close();
+			HomeController.boardStage = false;
+		}
+		ScoreManager scoreManager = new ScoreManager();
+		scoreManager.recordScore(GameController.times, player.getScore());
+		stage = new Stage();
+		try {
+			Parent root = (Parent)FXMLLoader.load(getClass().getResource("boardUI.fxml"));
+			Scene scene = new Scene(root);
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			stage.setTitle("Wow cool!!");
+			stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+				@Override
+				public void handle(WindowEvent event) {
+					System.exit(0);
+				}
+			});
+			stage.setScene(scene);
+			stage.show();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

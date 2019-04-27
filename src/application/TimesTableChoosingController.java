@@ -59,7 +59,7 @@ public class TimesTableChoosingController {
 						e.printStackTrace();
 					}
 					Button target = (Button) event.getTarget();
-					String text = target.getText();
+					String text = target.getText().trim();
 					target.setText("          " + text);
 					highscore.setText(scoreList.get(Integer.parseInt(text) - 2));
 				}
@@ -71,8 +71,8 @@ public class TimesTableChoosingController {
 			public void handle(MouseEvent event) {
 				if(event.getTarget().getClass() == times2.getClass()) {
 					Button target = (Button) event.getTarget();
-					String text = target.getText();
-					target.setText(text.trim());
+					String text = target.getText().trim();
+					target.setText(text);
 					highscore.setText("??");
 				}
 			}
@@ -82,12 +82,11 @@ public class TimesTableChoosingController {
 			@Override
 			public void handle(MouseEvent event) {
 				if(event.getTarget().getClass() == times2.getClass()) {
+					System.out.println("is button");
 					Button target = (Button) event.getTarget();
-					try {
-						wait(3500);
-					}catch(Exception x) {}
-					String text = target.getText();
-					GameController.times = Integer.parseInt(text.trim());
+					String text = target.getText().trim();
+					GameController.times = Integer.parseInt(text);
+					handlePlay();
 				}
 			}
 		};
@@ -160,7 +159,10 @@ public class TimesTableChoosingController {
 	}
 	
 	public void handlePlay() {
-		if(HomeController.stage.isShowing()) HomeController.stage.close();
+		if(HomeController.stage.isShowing()) {
+			HomeController.stage.close();
+			System.out.println("close");
+		}
 		HomeController.gameStage = true;
 		stage = new Stage();
 		try {

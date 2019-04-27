@@ -13,9 +13,12 @@ public class HomeController {
 	public static Stage stage;
 	public static boolean timesTableChoosingStage = false; 
 	public static boolean gameStage = false;
+	public static boolean boardStage = false;
 	
 	@FXML
 	Button start;
+	@FXML
+	Button quit;
 	
 	@FXML
 	public void initialize() {
@@ -52,6 +55,10 @@ public class HomeController {
 			GameController.stage.close();
 			gameStage = false;
 		}
+		else if(boardStage && BoardController.stage.isShowing()) {
+			BoardController.stage.close();
+			boardStage = false;
+		}
 		stage = new Stage();
 		try {
 			Parent root = (Parent)FXMLLoader.load(getClass().getResource("TimesTableChoosingUI.fxml"));
@@ -69,6 +76,10 @@ public class HomeController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void handleQuit() {
+		System.exit(0);
 	}
 	
 }

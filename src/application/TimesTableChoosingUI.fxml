@@ -10,17 +10,17 @@
    <children>
       <FlowPane alignment="CENTER_LEFT" prefHeight="400.0" prefWidth="176.0" vgap="8.0">
          <children>
-            <Button fx:id="times2" alignment="CENTER" mnemonicParsing="false" onAction="#initialize" onMouseClicked="#handlePlay" prefHeight="27.0" prefWidth="101.0" text="2" />
-            <Button fx:id="times3" alignment="CENTER" mnemonicParsing="false" onAction="#initialize" onMouseClicked="#handlePlay" prefHeight="27.0" prefWidth="101.0" text="3" />
-            <Button fx:id="times4" alignment="CENTER" mnemonicParsing="false" onAction="#initialize" onMouseClicked="#handlePlay" prefHeight="27.0" prefWidth="101.0" text="4" />
-            <Button fx:id="times5" alignment="CENTER" mnemonicParsing="false" onAction="#initialize" onMouseClicked="#handlePlay" prefHeight="27.0" prefWidth="101.0" text="5" />
-            <Button fx:id="times6" alignment="CENTER" mnemonicParsing="false" onAction="#initialize" onMouseClicked="#handlePlay" prefHeight="27.0" prefWidth="101.0" text="6" />
-            <Button fx:id="times7" alignment="CENTER" mnemonicParsing="false" onAction="#initialize" onMouseClicked="#handlePlay" prefHeight="27.0" prefWidth="101.0" text="7" />
-            <Button fx:id="times8" alignment="CENTER" mnemonicParsing="false" onAction="#initialize" onMouseClicked="#handlePlay" prefHeight="27.0" prefWidth="101.0" text="8" />
-            <Button fx:id="times9" alignment="CENTER" mnemonicParsing="false" onAction="#initialize" onMouseClicked="#handlePlay" prefHeight="27.0" prefWidth="101.0" text="9" />
-            <Button fx:id="times10" alignment="CENTER" mnemonicParsing="false" onAction="#initialize" onMouseClicked="#handlePlay" prefHeight="27.0" prefWidth="101.0" text="10" />
-            <Button fx:id="times11" alignment="CENTER" mnemonicParsing="false" onAction="#initialize" onMouseClicked="#handlePlay" prefHeight="27.0" prefWidth="101.0" text="11" />
-            <Button fx:id="times12" alignment="CENTER" mnemonicParsing="false" onAction="#initialize" onMouseClicked="#handlePlay" prefHeight="27.0" prefWidth="101.0" text="12" />
+            <Button fx:id="times2" alignment="CENTER" mnemonicParsing="false" onAction="#initialize" prefHeight="27.0" prefWidth="101.0" text="2" />
+            <Button fx:id="times3" alignment="CENTER" mnemonicParsing="false" onAction="#initialize" prefHeight="27.0" prefWidth="101.0" text="3" />
+            <Button fx:id="times4" alignment="CENTER" mnemonicParsing="false" onAction="#initialize" prefHeight="27.0" prefWidth="101.0" text="4" />
+            <Button fx:id="times5" alignment="CENTER" mnemonicParsing="false" onAction="#initialize" prefHeight="27.0" prefWidth="101.0" text="5" />
+            <Button fx:id="times6" alignment="CENTER" mnemonicParsing="false" onAction="#initialize" prefHeight="27.0" prefWidth="101.0" text="6" />
+            <Button fx:id="times7" alignment="CENTER" mnemonicParsing="false" onAction="#initialize" prefHeight="27.0" prefWidth="101.0" text="7" />
+            <Button fx:id="times8" alignment="CENTER" mnemonicParsing="false" onAction="#initialize" prefHeight="27.0" prefWidth="101.0" text="8" />
+            <Button fx:id="times9" alignment="CENTER" mnemonicParsing="false" onAction="#initialize" prefHeight="27.0" prefWidth="101.0" text="9" />
+            <Button fx:id="times10" alignment="CENTER" mnemonicParsing="false" onAction="#initialize" prefHeight="27.0" prefWidth="101.0" text="10" />
+            <Button fx:id="times11" alignment="CENTER" mnemonicParsing="false" onAction="#initialize" prefHeight="27.0" prefWidth="101.0" text="11" />
+            <Button fx:id="times12" alignment="CENTER" mnemonicParsing="false" onAction="#initialize" prefHeight="27.0" prefWidth="101.0" text="12" />
          </children>
       </FlowPane>
       <Label fx:id="highscore" alignment="CENTER" contentDisplay="CENTER" layoutX="272.0" layoutY="140.0" prefHeight="17.0" prefWidth="264.0" text="??">
