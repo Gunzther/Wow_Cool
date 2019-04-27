@@ -26,7 +26,7 @@ public class HomeController {
 			@Override
 			public void handle(MouseEvent event) {
 				if(event.getTarget() == start) {
-					start.setText("CLICK!");
+					start.setText("C L I C K   M E !");
 				}
 			}
 		};
@@ -35,7 +35,7 @@ public class HomeController {
 			@Override
 			public void handle(MouseEvent event) {
 				if(event.getTarget() == start) {
-					start.setText("START");
+					start.setText("S T A R T   G A M E");
 				}
 			}
 		};

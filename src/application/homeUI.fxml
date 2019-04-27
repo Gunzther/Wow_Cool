@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.text.Font?>
 
-<FlowPane alignment="BOTTOM_CENTER" columnHalignment="CENTER" hgap="1000.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" vgap="15.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.HomeController">
+<FlowPane alignment="BOTTOM_CENTER" columnHalignment="CENTER" hgap="1000.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" vgap="15.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.HomeController">
    <children>
-      <Button fx:id="start" alignment="CENTER" mnemonicParsing="false" onAction="#initialize" onMouseClicked="#handleStart" prefHeight="40.0" prefWidth="500.0" text="START">
+      <Button fx:id="start" alignment="CENTER" mnemonicParsing="false" onAction="#initialize" onMouseClicked="#handleStart" prefHeight="40.0" prefWidth="500.0" text="S T A R T   G A M E">
          <font>
-            <Font name="Comic Sans MS" size="20.0" />
+            <Font name="Comic Sans MS Bold" size="20.0" />
          </font></Button>
-      <Button fx:id="quit" mnemonicParsing="false" onMouseClicked="#handleQuit" prefHeight="40.0" prefWidth="500.0" text="QUIT">
+      <Button fx:id="quit" mnemonicParsing="false" onMouseClicked="#handleQuit" prefHeight="40.0" prefWidth="500.0" text="Q U I T">
          <font>
-            <Font name="Comic Sans MS" size="20.0" />
+            <Font name="Comic Sans MS Bold" size="20.0" />
          </font>
       </Button>
    </children>
