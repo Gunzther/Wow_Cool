@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 import java.io.FileNotFoundException;
+import java.lang.annotation.Target;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -83,13 +84,10 @@ public class TimesTableChoosingController {
 		EventHandler<MouseEvent> event3 = new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
-				if(event.getTarget().getClass() == times2.getClass()) {
-					System.out.println("is button");
-					Button target = (Button) event.getTarget();
-					String text = target.getText().trim();
-					GameController.times = Integer.parseInt(text);
-					if(check == 0) handlePlay();
-				}
+				Button target = (Button) event.getSource();
+				String text = target.getText().trim();
+				GameController.times = Integer.parseInt(text);
+				if(check == 0) handlePlay();
 			}
 		};
 		

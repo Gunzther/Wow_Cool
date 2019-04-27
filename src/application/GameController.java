@@ -84,12 +84,10 @@ public class GameController {
 		EventHandler<MouseEvent> event3 = new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
-				if(event.getTarget().getClass() == choice1.getClass()) {
-					Button target = (Button) event.getTarget();
-					String text = target.getText();
-					player.playerAns();
-					handleAnswer(text);
-				}
+				Button target = (Button) event.getSource();
+				String text = target.getText();
+				player.playerAns();
+				handleAnswer(text);
 			}
 		};
 		
@@ -111,11 +109,13 @@ public class GameController {
 				  timeInSec--;
 				  if(timeInSec == 0) {
 					  myTimer.cancel();
-					  try {
-						showScore();
-					} catch (FileNotFoundException e) {
-						e.printStackTrace();
-					}
+					  Platform.runLater(() -> {
+						  try {
+								showScore();
+						  } catch (FileNotFoundException e) {
+								e.printStackTrace();
+						  }
+			          	});
 				  }
 			  }
 			}, 1000, 1000);
@@ -156,17 +156,13 @@ public class GameController {
 		list = new ArrayList<Integer>(Arrays.asList(1,2,3,4,5,6,7,8,9,10,11,12));
 		rand = new Random();
 		int question = list.get(rand.nextInt(list.size()));
-		System.out.println(question);
 		list.remove(list.indexOf(question));
 		
 		front.setText(Integer.toString(times));
 		back.setText(Integer.toString(question));
 		
 		ans = Integer.toString(times * question);
-		System.out.println("ans: " + ans);
-		
 		int ansButton = (rand.nextInt(4));
-		System.out.println("button: " + ansButton);
 		
 		for(int i = 0; i < 4; i++) {
 			if(i == ansButton) {
