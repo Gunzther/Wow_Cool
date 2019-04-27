@@ -36,8 +36,7 @@ public class ScoreManager {
 			}
 			in = new FileInputStream(filename);
 		}
-		Scanner readText;
-		readText = new Scanner(in);
+		Scanner readText = new Scanner(in);
 		while (readText.hasNextLine()) {
 			String score = readText.nextLine();
 			listScore.add(score);
