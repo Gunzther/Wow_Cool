@@ -11,7 +11,6 @@ import javafx.fxml.*;
 
 public class TimesTableChoosingController {
 	public static Stage stage;
-	public static boolean startStage = false; 
 	
 	@FXML
 	Button times2;
@@ -69,9 +68,11 @@ public class TimesTableChoosingController {
 			public void handle(MouseEvent event) {
 				if(event.getTarget().getClass() == times2.getClass()) {
 					Button target = (Button) event.getTarget();
+					try {
+						wait(3500);
+					}catch(Exception x) {}
 					String text = target.getText();
 					GameController.times = Integer.parseInt(text.trim());
-//					System.out.println(GameController.times);
 				}
 			}
 		};

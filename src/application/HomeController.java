@@ -48,6 +48,10 @@ public class HomeController {
 			TimesTableChoosingController.stage.close();
 			timesTableChoosingStage = false;
 		}
+		else if(gameStage && GameController.stage.isShowing()) {
+			GameController.stage.close();
+			gameStage = false;
+		}
 		stage = new Stage();
 		try {
 			Parent root = (Parent)FXMLLoader.load(getClass().getResource("TimesTableChoosingUI.fxml"));
