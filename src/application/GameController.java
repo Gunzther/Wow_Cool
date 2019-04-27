@@ -53,7 +53,10 @@ public class GameController {
 	
 	@FXML
 	public void initialize() {
-//		buttonArray = {choice1, choice2, choice3, choice4};
+		buttonArray[0] = choice1;
+        buttonArray[1] = choice2;
+        buttonArray[2] = choice3;
+        buttonArray[3] = choice4;
 		player = new Player();
 		generateQuestion();
 		startTimer();
@@ -148,14 +151,14 @@ public class GameController {
 		list = new ArrayList<Integer>(Arrays.asList(1,2,3,4,5,6,7,8,9,10,11,12));
 		rand = new Random();
 		int question = list.get(rand.nextInt(list.size()));
-		list.remove(question);
+		list.remove(list.indexOf(question));
 		
 		front.setText(Integer.toString(times));
 		back.setText(Integer.toString(question));
 		
 		ans = Integer.toString(times * question);
 		
-		int ansButton = ((int) Math.random()) * 4 + 1;
+		int ansButton = (rand.nextInt(4) + 1);
 		
 		for(int i = 0; i < 4; i++) {
 			if(i == ansButton) {
@@ -164,7 +167,7 @@ public class GameController {
 			else {
 				int choice = list.get(rand.nextInt(list.size()));
 				buttonArray[i].setText(Integer.toString(times * choice));
-				list.remove(choice);
+				list.remove(list.indexOf(choice));
 			}
 		}
 	}
