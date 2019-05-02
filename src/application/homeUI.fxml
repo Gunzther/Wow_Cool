@@ -9,9 +9,9 @@
 
 <FlowPane alignment="BOTTOM_CENTER" columnHalignment="CENTER" hgap="1000.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: url('pic/wallpaper.jpg');" vgap="15.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.HomeController">
    <children>
-      <ImageView fitHeight="198.0" fitWidth="244.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="214.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../pic/logo.png" />
+            <Image url="@../pic/banana2.gif" />
          </image>
       </ImageView>
       <Button fx:id="start" alignment="CENTER" mnemonicParsing="false" onAction="#initialize" onMouseClicked="#handleStart" prefHeight="40.0" prefWidth="500.0" style="-fx-background-color: black;" text="S T A R T   G A M E" textFill="WHITE">
