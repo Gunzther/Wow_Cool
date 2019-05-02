@@ -55,13 +55,17 @@ public class TimesTableChoosingController {
 		EventHandler<MouseEvent> event1 = new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
-				if(event.getTarget().getClass() == times2.getClass()) {
+				if(event.getTarget() == back) {
+					back.setText("N O O O ! !");
+					back.setStyle("-fx-text-fill: #ff0000; -fx-background-color: #000000");
+				}
+				else if(event.getTarget().getClass() == times2.getClass()) {
 					try {
 						scoreList = scoreManager.readScore();
 					} catch (FileNotFoundException e) {
 						e.printStackTrace();
 					}
-					Button target = (Button) event.getTarget();
+					Button target = (Button) event.getSource();
 					String text = target.getText().trim();
 					target.setText("          " + text);
 					highscore.setText(scoreList.get(Integer.parseInt(text) - 2));
@@ -72,8 +76,12 @@ public class TimesTableChoosingController {
 		EventHandler<MouseEvent> event2 = new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
-				if(event.getTarget().getClass() == times2.getClass()) {
-					Button target = (Button) event.getTarget();
+				if(event.getTarget() == back) {
+					back.setText("Back to Home");
+					back.setStyle("-fx-text-fill: #ffffff; -fx-background-color: #000000");
+				}
+				else if(event.getTarget().getClass() == times2.getClass()) {
+					Button target = (Button) event.getSource();
 					String text = target.getText().trim();
 					target.setText(text);
 					highscore.setText("??");
@@ -134,6 +142,9 @@ public class TimesTableChoosingController {
 		times12.addEventHandler(MouseEvent.MOUSE_ENTERED_TARGET, event1);
 		times12.addEventHandler(MouseEvent.MOUSE_EXITED_TARGET, event2);
 		times12.addEventHandler(MouseEvent.MOUSE_CLICKED, event3);
+		
+		back.addEventHandler(MouseEvent.MOUSE_ENTERED_TARGET, event1);
+		back.addEventHandler(MouseEvent.MOUSE_EXITED_TARGET, event2);
 	}
 	
 	public void handleBack() {

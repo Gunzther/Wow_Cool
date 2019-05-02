@@ -28,6 +28,10 @@ public class HomeController {
 				if(event.getTarget() == start) {
 					start.setText("C L I C K   M E !");
 				}
+				else if(event.getTarget() == quit) {
+					quit.setText("N O O O O O O O O O ! !");
+					quit.setStyle("-fx-text-fill: #ff0000; -fx-background-color: #000000");
+				}
 			}
 		};
 		
@@ -37,11 +41,17 @@ public class HomeController {
 				if(event.getTarget() == start) {
 					start.setText("S T A R T   G A M E");
 				}
+				else if(event.getTarget() == quit) {
+					quit.setText("Q U I T");
+					quit.setStyle("-fx-text-fill: #ababab; -fx-background-color: #000000");
+				}
 			}
 		};
 		
 		start.addEventHandler(MouseEvent.MOUSE_ENTERED_TARGET, event1);
 		start.addEventHandler(MouseEvent.MOUSE_EXITED_TARGET, event2);
+		quit.addEventHandler(MouseEvent.MOUSE_ENTERED_TARGET, event1);
+		quit.addEventHandler(MouseEvent.MOUSE_EXITED_TARGET, event2);
 	}
 	
 	/** Go to mode selection */

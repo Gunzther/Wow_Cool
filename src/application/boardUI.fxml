@@ -3,51 +3,102 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.BoardController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: url('pic/wallpaper.jpg');" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.BoardController">
    <children>
+      <Label layoutX="33.0" layoutY="22.0" prefHeight="293.0" prefWidth="539.0" style="-fx-background-color: black;" />
       <Label layoutX="61.0" layoutY="25.0" text="Score:">
          <font>
             <Font name="Comic Sans MS" size="48.0" />
          </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0" startY="1.0">
+               <stops>
+                  <Stop color="#fff300" />
+                  <Stop color="#d500ff" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
       </Label>
       <Label layoutX="66.0" layoutY="115.0" text="Frequency:">
          <font>
             <Font name="Comic Sans MS" size="36.0" />
          </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0" startY="1.0">
+               <stops>
+                  <Stop color="#f5ff00" />
+                  <Stop color="#00c4ff" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
       </Label>
       <Label layoutX="128.0" layoutY="199.0" text="Correct:">
          <font>
             <Font name="Comic Sans MS" size="36.0" />
          </font>
+         <textFill>
+            <LinearGradient endX="0.7403846153846154" endY="1.0" startY="1.0">
+               <stops>
+                  <Stop color="LIME" />
+                  <Stop color="YELLOW" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
       </Label>
       <Label layoutX="336.0" layoutY="199.0" text="Wrong:">
          <font>
             <Font name="Comic Sans MS" size="36.0" />
          </font>
+         <textFill>
+            <LinearGradient endX="0.8125000000000001" endY="1.0" startY="1.0">
+               <stops>
+                  <Stop color="RED" />
+                  <Stop color="YELLOW" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
       </Label>
-      <Button fx:id="playAgain" layoutX="309.0" layoutY="330.0" mnemonicParsing="false" onMouseClicked="#handlePlayAgain" prefHeight="44.0" prefWidth="129.0" text="Play Again">
+      <Button fx:id="playAgain" layoutX="309.0" layoutY="334.0" mnemonicParsing="false" onMouseClicked="#handlePlayAgain" prefHeight="44.0" prefWidth="129.0" style="-fx-background-color: black;" text="Play Again" textFill="WHITE">
          <font>
             <Font name="Comic Sans MS Bold" size="15.0" />
          </font></Button>
-      <Button fx:id="welcomeHome" layoutX="158.0" layoutY="330.0" mnemonicParsing="false" onMouseClicked="#handleBack" prefHeight="44.0" prefWidth="129.0" text="Back to Home">
+      <Button fx:id="welcomeHome" layoutX="158.0" layoutY="334.0" mnemonicParsing="false" onMouseClicked="#handleBack" prefHeight="44.0" prefWidth="129.0" style="-fx-background-color: black;" text="Back to Home" textFill="WHITE">
          <font>
             <Font name="Comic Sans MS Bold" size="15.0" />
          </font></Button>
       <Label fx:id="scoreLb" alignment="CENTER" contentDisplay="CENTER" layoutX="207.0" layoutY="27.0" prefHeight="67.0" prefWidth="183.0" text="??/??">
          <font>
             <Font name="Comic Sans MS" size="48.0" />
-         </font></Label>
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0" startY="1.0">
+               <stops>
+                  <Stop color="#fff300" />
+                  <Stop color="#d500ff" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill></Label>
       <Label fx:id="frequency" alignment="CENTER" contentDisplay="CENTER" layoutX="247.0" layoutY="109.0" prefHeight="67.0" prefWidth="183.0" text="??.??">
          <font>
             <Font name="Comic Sans MS" size="48.0" />
-         </font></Label>
-      <Label fx:id="correct" alignment="CENTER" layoutX="133.0" layoutY="243.0" prefHeight="67.0" prefWidth="129.0" text="??" textFill="#30ae49">
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0" startY="1.0">
+               <stops>
+                  <Stop color="#f5ff00" />
+                  <Stop color="#00c4ff" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill></Label>
+      <Label fx:id="correct" alignment="CENTER" layoutX="133.0" layoutY="243.0" prefHeight="67.0" prefWidth="129.0" text="??" textFill="LIME">
          <font>
             <Font name="Comic Sans MS" size="48.0" />
          </font></Label>
-      <Label fx:id="wrong" alignment="CENTER" contentDisplay="CENTER" layoutX="344.0" layoutY="244.0" prefHeight="67.0" prefWidth="111.0" text="??" textFill="#cd1e1e">
+      <Label fx:id="wrong" alignment="CENTER" contentDisplay="CENTER" layoutX="344.0" layoutY="244.0" prefHeight="67.0" prefWidth="111.0" text="??" textFill="RED">
          <font>
             <Font name="Comic Sans MS" size="48.0" />
          </font></Label>
@@ -55,11 +106,27 @@
          <font>
             <Font name="Comic Sans MS" size="21.0" />
          </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0" startY="1.0">
+               <stops>
+                  <Stop color="#f5ff00" />
+                  <Stop color="#00c4ff" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
       </Label>
       <Label layoutX="391.0" layoutY="52.0" text="points">
          <font>
             <Font name="Comic Sans MS" size="21.0" />
          </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0" startY="1.0">
+               <stops>
+                  <Stop color="#fff300" />
+                  <Stop color="#d500ff" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
       </Label>
    </children>
 </AnchorPane>

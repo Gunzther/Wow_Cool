@@ -63,23 +63,33 @@ public class GameController {
 		generateQuestion();
 		startTimer();
 		
-//		EventHandler<MouseEvent> event1 = new EventHandler<MouseEvent>() {
-//			@Override
-//			public void handle(MouseEvent event) {
-//				if(event.getTarget() == start) {
-//					start.setText("CLICK!");
-//				}
-//			}
-//		};
-//		
-//		EventHandler<MouseEvent> event2 = new EventHandler<MouseEvent>() {
-//			@Override
-//			public void handle(MouseEvent event) {
-//				if(event.getTarget() == start) {
-//					start.setText("START");
-//				}
-//			}
-//		};
+		EventHandler<MouseEvent> event1 = new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				if(event.getTarget() == welcomeHome) {
+					welcomeHome.setText("N O O O ! !");
+					welcomeHome.setStyle("-fx-text-fill: #ff0000; -fx-background-color: #000000");
+				}
+				else if(event.getTarget().getClass() == choice1.getClass()) {
+					Button target = (Button) event.getSource();
+					target.setStyle("-fx-text-fill: #000000; -fx-background-color: #ffff00");
+				}
+			}
+		};
+		
+		EventHandler<MouseEvent> event2 = new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				if(event.getTarget() == welcomeHome) {
+					welcomeHome.setText("Back to Home");
+					welcomeHome.setStyle("-fx-text-fill: #ffffff; -fx-background-color: #000000");
+				}
+				else if(event.getTarget().getClass() == choice1.getClass()) {
+					Button target = (Button) event.getSource();
+					target.setStyle("-fx-text-fill: #ffffff; -fx-background-color: #000000");
+				}
+			}
+		};
 		
 		EventHandler<MouseEvent> event3 = new EventHandler<MouseEvent>() {
 			@Override
@@ -91,10 +101,23 @@ public class GameController {
 			}
 		};
 		
+		choice1.addEventHandler(MouseEvent.MOUSE_ENTERED_TARGET, event1);
+		choice2.addEventHandler(MouseEvent.MOUSE_ENTERED_TARGET, event1);
+		choice3.addEventHandler(MouseEvent.MOUSE_ENTERED_TARGET, event1);
+		choice4.addEventHandler(MouseEvent.MOUSE_ENTERED_TARGET, event1);
+		
+		choice1.addEventHandler(MouseEvent.MOUSE_EXITED_TARGET, event2);
+		choice2.addEventHandler(MouseEvent.MOUSE_EXITED_TARGET, event2);
+		choice3.addEventHandler(MouseEvent.MOUSE_EXITED_TARGET, event2);
+		choice4.addEventHandler(MouseEvent.MOUSE_EXITED_TARGET, event2);
+		
 		choice1.addEventHandler(MouseEvent.MOUSE_CLICKED, event3);
 		choice2.addEventHandler(MouseEvent.MOUSE_CLICKED, event3);
 		choice3.addEventHandler(MouseEvent.MOUSE_CLICKED, event3);
 		choice4.addEventHandler(MouseEvent.MOUSE_CLICKED, event3);
+		
+		welcomeHome.addEventHandler(MouseEvent.MOUSE_ENTERED_TARGET, event1);
+		welcomeHome.addEventHandler(MouseEvent.MOUSE_EXITED_TARGET, event2);
 	}
 	
 	public void startTimer() {
