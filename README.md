@@ -6,23 +6,18 @@
 
 ## 2. GRASP Principles
 
-- **Controller**
+- **Controller**: We can see this happening everywhere in *'Wow cool!!'* project because we want to provide a layer between the user interface and the Domain Model. So, we use it to control the user interface layer and basically manage objects bonded to which user interface.
 
-We can see this happening everywhere in *'Wow cool!!'* project because we want to provide a layer between the user interface and the Domain Model. So, we use it to control the user interface layer and basically manage objects bonded to which user interface.
+- **Creator**: We use Creator principles to create many windows following our UML class diagram. For example, Main class creates Home window then HomeController class creates TimesTableChoosing window and so on.
 
-- **Creator**
+- **High Cohesion**: We seperate responsibilities into a single responsibility. A class is fulfilling a single responsibility. Moreover, we set the name of class depends on responsibility of it.
 
-We use Creator principles to create many windows following our UML class diagram. For example, Main class creates Home window then HomeController class creates TimesTableChoosing window and so on.
+- **Polymorphism**: We use Polymorphism where derived classes can be referenced through parent classes to generalized the start method in the interface and delegated the Main specific implementation to its classes.
 
-- **High Cohesion**
+- **Pure Fabrication**: Our user interfaces have their own controllers for control and calculation.
 
-We seperate responsibilities into a single responsibility. A class is fulfilling a single responsibility. Moreover, we set the name of class depends on responsibility of it.
+## Contributors
 
-- **Polymorphism**
-
-We use Polymorphism where derived classes can be referenced through parent classes to generalized the start method in the interface and delegated the Main specific implementation to its classes.
-
-- **Pure Fabrication**
-
-Our user interfaces have their own controllers for control and calculation.
-
+- 6010545021 [Kornphon Noiprasert](https://github.com/Driveiei)
+- 6010545692 [Kunyaruk Katebunlu](https://github.com/NokKbl)
+- 6010546915 [Gunthee Tawewatmongkol](https://github.com/KameriiJ)
