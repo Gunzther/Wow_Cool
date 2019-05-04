@@ -11,15 +11,11 @@ import java.util.TimerTask;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
-public class GameController {
+public class GameController implements StageBuilder{
 	
 	public static Stage stage;
 	public static boolean startStage = false; 
@@ -146,25 +142,9 @@ public class GameController {
 	
 	public void handleBack() {
 		myTimer.cancel();
-		if(TimesTableChoosingController.stage.isShowing()) TimesTableChoosingController.stage.close();
-		HomeController.gameStage = true;
+		destroy();
 		stage = new Stage();
-		try {
-			Parent root = (Parent)FXMLLoader.load(getClass().getResource("HomeUI.fxml"));
-			Scene scene = new Scene(root);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			stage.setTitle("Wow cool!!");
-			stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-				@Override
-				public void handle(WindowEvent event) {
-					System.exit(0);
-				}
-			});
-			stage.setScene(scene);
-			stage.show();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		build(stage, "HomeUI.fxml");
 	}
 	
 	public void handleAnswer(String text) {
@@ -200,30 +180,18 @@ public class GameController {
 	}
 	
 	public void showScore() throws FileNotFoundException {
-		if(TimesTableChoosingController.stage.isShowing()) TimesTableChoosingController.stage.close();
-		else if(HomeController.boardStage && BoardController.stage.isShowing()) {
-			BoardController.stage.close();
-			HomeController.boardStage = false;
-		}
+		destroy();
 		ScoreManager scoreManager = new ScoreManager();
 		scoreManager.recordScore(GameController.times, player.getScore());
 		stage = new Stage();
-		try {
-			Parent root = (Parent)FXMLLoader.load(getClass().getResource("boardUI.fxml"));
-			Scene scene = new Scene(root);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			stage.setTitle("Wow cool!!");
-			stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-				@Override
-				public void handle(WindowEvent event) {
-					System.exit(0);
-				}
-			});
-			stage.setScene(scene);
-			stage.show();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		build(stage, "boardUI.fxml");
+	}
+
+	@Override
+	public void destroy() {
+		if(timesTableIsShower()) TimesTableChoosingController.stage.close();
+		else if(boardIsShower()) BoardController.stage.close();
+		HomeController.gameStage = true;
 	}
 
 }

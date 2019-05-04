@@ -1,21 +1,17 @@
 package application;
 
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
-
-import java.io.FileNotFoundException;
-import java.lang.annotation.Target;
-import java.util.ArrayList;
-import java.util.List;
-
 import javafx.event.EventHandler;
 import javafx.fxml.*;
 
-public class TimesTableChoosingController {
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class TimesTableChoosingController implements StageBuilder{
 	public static Stage stage;
 	public List<String> scoreList;
 	
@@ -148,50 +144,22 @@ public class TimesTableChoosingController {
 	}
 	
 	public void handleBack() {
-		if(HomeController.stage.isShowing()) HomeController.stage.close();
-		else if (HomeController.boardStage && BoardController.stage.isShowing()) BoardController.stage.close();
-		HomeController.timesTableChoosingStage = true;
+		destroy();
 		stage = new Stage();
-		try {
-			Parent root = (Parent)FXMLLoader.load(getClass().getResource("HomeUI.fxml"));
-			Scene scene = new Scene(root);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			stage.setTitle("Wow cool!!");
-			stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-				@Override
-				public void handle(WindowEvent event) {
-					System.exit(0);
-				}
-			});
-			stage.setScene(scene);
-			stage.show();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		build(stage, "HomeUI.fxml");
 	}
 	
 	public void handlePlay() {
 		check++;
-		if(HomeController.stage.isShowing()) {
-			HomeController.stage.close();
-		}
-		HomeController.gameStage = true;
+		destroy();
 		stage = new Stage();
-		try {
-			Parent root = (Parent)FXMLLoader.load(getClass().getResource("GameUI.fxml"));
-			Scene scene = new Scene(root);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			stage.setTitle("Wow cool!!");
-			stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-				@Override
-				public void handle(WindowEvent event) {
-					System.exit(0);
-				}
-			});
-			stage.setScene(scene);
-			stage.show();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		build(stage, "GameUI.fxml");
+	}
+
+	@Override
+	public void destroy() {
+		if(homeIsShower()) HomeController.stage.close();
+		else if (boardIsShower()) BoardController.stage.close();
+		HomeController.timesTableChoosingStage = true;
 	}
 }
