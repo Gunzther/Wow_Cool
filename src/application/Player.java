@@ -5,7 +5,6 @@ public class Player {
 	private int score;
 	private int totalNumOfAns;
 	
-	
 	public Player() {
 		this.score = 0;
 		this.totalNumOfAns = 0;

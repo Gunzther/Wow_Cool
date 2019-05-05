@@ -81,5 +81,4 @@ public class BoardController implements StageBuilder{
 		HomeController.boardStage = true;
 	}
 	
-
 }

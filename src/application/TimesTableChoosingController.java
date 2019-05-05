@@ -10,7 +10,6 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class TimesTableChoosingController implements StageBuilder{
 	public static Stage stage;
 	public List<String> scoreList;
