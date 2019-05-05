@@ -1,5 +1,7 @@
 # Wow_Cool
 
+Credit: song "Night fever" by Bee Gees (1997)
+
 ## 1. UML Class Diagram
 
 ![uml](https://github.com/KameriiJ/Wow_Cool/blob/master/uml.jpg)
